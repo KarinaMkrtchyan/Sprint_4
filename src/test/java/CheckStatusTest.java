@@ -40,18 +40,17 @@ public class CheckStatusTest {
     }
 
     @Test
-
-    public void checkStatus_nonExistingOrder_showsError() {
+    public void checkStatusOnExistingOrderShowsError() {
     MainPage mainPage = new MainPage(driver);
-    mainPage.open(); //открыть главную страницу
-    mainPage.clickCheckOrderButton(); //кликнуть на кнопку [Статус заказа]
-    mainPage.enterOrderNumber(orderNumber); //ввести в поле номер заказа
-    mainPage.clickGoButton(); //нажать на кнопку [GO]
-    Assert.assertTrue(mainPage.isImageNotFoundDisplayed()); //Убедиться, что данного заказа нет
+    mainPage.open();
+    mainPage.clickCheckOrderButton();
+    mainPage.enterOrderNumber(orderNumber);
+    mainPage.clickGoButton();
+    Assert.assertTrue(mainPage.isImageNotFoundDisplayed());
     }
 
    @After
-   public void TearDown(){
+   public void tearDown(){
         driver.quit();
 }
 }
